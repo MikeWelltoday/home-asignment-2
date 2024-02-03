@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MikeWelltoday/home-asignment-2/static/css/main.c6d59339.css",
-    "main.js": "/MikeWelltoday/home-asignment-2/static/js/main.a41c3175.js",
-    "static/js/787.66cb4309.chunk.js": "/MikeWelltoday/home-asignment-2/static/js/787.66cb4309.chunk.js",
-    "static/media/avatar.png": "/MikeWelltoday/home-asignment-2/static/media/avatar.d947cb9d0d13765666b6.png",
-    "index.html": "/MikeWelltoday/home-asignment-2/index.html",
-    "main.c6d59339.css.map": "/MikeWelltoday/home-asignment-2/static/css/main.c6d59339.css.map",
-    "main.a41c3175.js.map": "/MikeWelltoday/home-asignment-2/static/js/main.a41c3175.js.map",
-    "787.66cb4309.chunk.js.map": "/MikeWelltoday/home-asignment-2/static/js/787.66cb4309.chunk.js.map"
+    "main.css": "/home-asignment-2/static/css/main.c6d59339.css",
+    "main.js": "/home-asignment-2/static/js/main.be76d51d.js",
+    "static/js/787.66cb4309.chunk.js": "/home-asignment-2/static/js/787.66cb4309.chunk.js",
+    "static/media/avatar.png": "/home-asignment-2/static/media/avatar.d947cb9d0d13765666b6.png",
+    "index.html": "/home-asignment-2/index.html",
+    "main.c6d59339.css.map": "/home-asignment-2/static/css/main.c6d59339.css.map",
+    "main.be76d51d.js.map": "/home-asignment-2/static/js/main.be76d51d.js.map",
+    "787.66cb4309.chunk.js.map": "/home-asignment-2/static/js/787.66cb4309.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c6d59339.css",
-    "static/js/main.a41c3175.js"
+    "static/js/main.be76d51d.js"
   ]
 }
