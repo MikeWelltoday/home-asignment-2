@@ -4,24 +4,24 @@ import {AffairType, FilterType} from '../HW2'
 import s from './Affairs.module.css'
 
 type AffairsPropsType = {
-    data: any // need to fix any
-    setFilter: any
-    deleteAffairCallback: any
+    data: AffairType[] // need to fix any
+    setFilter: (filter: FilterType) => void
+    deleteAffairCallback: (_id: number) => void
     filter: FilterType
 }
 
 function Affairs(props: AffairsPropsType) {
     const setAll = () => {
-        // need to fix
+        props.setFilter('all')
     }
     const setHigh = () => {
-        // need to fix
+        props.setFilter('high')
     }
     const setMiddle = () => {
-        // need to fix
+        props.setFilter('middle')
     }
     const setLow = () => {
-        // need to fix
+        props.setFilter('low')
     }
 
     const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
@@ -33,13 +33,14 @@ function Affairs(props: AffairsPropsType) {
         <Affair
             key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
             affair={a}
-            deleteAffairCallback={props.deleteAffairCallback}
+            deleteAffairCallback={() => props.deleteAffairCallback(a._id)}
         />
     ))
 
     return (
         <div>
             <div className={s.buttonContainer}>
+
                 <button
                     id={'hw2-button-all'}
                     onClick={setAll}
@@ -47,6 +48,7 @@ function Affairs(props: AffairsPropsType) {
                 >
                     All
                 </button>
+
                 <button
                     id={'hw2-button-high'}
                     onClick={setHigh}
@@ -54,6 +56,7 @@ function Affairs(props: AffairsPropsType) {
                 >
                     High
                 </button>
+
                 <button
                     id={'hw2-button-middle'}
                     onClick={setMiddle}
@@ -61,6 +64,7 @@ function Affairs(props: AffairsPropsType) {
                 >
                     Middle
                 </button>
+
                 <button
                     id={'hw2-button-low'}
                     onClick={setLow}
