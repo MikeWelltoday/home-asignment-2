@@ -2,8 +2,8 @@ import React, {ChangeEvent, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
 
 type GreetingPropsType = {
-    name: any // need to fix any
-    setNameCallback: any // need to fix any
+    name: string
+    setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void
     addUser: any // need to fix any
     onBlur: any // need to fix any
     onEnter: any // need to fix any
@@ -22,8 +22,8 @@ const Greeting: React.FC<GreetingPropsType> = (
         onBlur,
         error,
         totalUsers,
-        lastUserName,
-    } // деструктуризация пропсов
+        lastUserName
+    }
 ) => {
     const inputClass = s.errorInput // need to fix with (?:)
 

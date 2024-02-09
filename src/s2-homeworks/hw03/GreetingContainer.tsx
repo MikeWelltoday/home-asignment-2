@@ -17,17 +17,14 @@ export const pureOnBlur = (name: any, setError: any) => { // если имя п�
 export const pureOnEnter = (e: any, addUser: any) => { // если нажата кнопка Enter - добавить
 }
 
-// более простой и понятный для новичков
-// function GreetingContainer(props: GreetingPropsType) {
 
-// более современный и удобный для про :)
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => {
-    // деструктуризация пропсов
-    const [name, setName] = useState<string>('')
-    const [error, setError] = useState<any>('') // need to fix any
 
-    const setNameCallback = (e: any) => { // need to fix any
-        setName('some name') // need to fix
+    const [name, setName] = useState<string>('')
+    const [error, setError] = useState<any>('')
+
+    const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
+        setName(e.currentTarget.value)
 
         error && setError('')
     }
