@@ -1,23 +1,57 @@
 .sidebar {
+    background-color: #719b79;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    row-gap: 100px;
+
+    transform: translateX(-300px);
+
+    transition: all 0.5s ease 0.3s;
+
+    padding: 40px;
+}
+
+.sidebar button {
+    display: block;
 }
 
 .sidebar.open {
+    transform: translateX(0);
 }
 
 .background {
 }
 
 .nav {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 30px;
 }
 
 .nav a {
+    text-align: center;
+    font: 700 30px sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1a4f1a;
 }
 
 .nav a:hover {
+    color: white;
 }
 
 .nav a.active {
+    color: orange;
 }
+
 .close {
 }
 
