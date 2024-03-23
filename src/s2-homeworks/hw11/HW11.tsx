@@ -19,6 +19,7 @@ function HW11() {
         // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
         if (typeof value === 'number') {
             setValue1(value)
+            setValue2([value, value2[1]])
         } else {
             setValue1(value[0])
             setValue2(value)
@@ -51,7 +52,7 @@ function HW11() {
                             value={value2}
                             onChange={change}
                         />
-                        <span id={'hw11-value-2'} className={s.number}>{value2}</span>
+                        <span id={'hw11-value-2'} className={s.number}>{value2[1] - value1}</span>
                     </div>
 
                 </div>
