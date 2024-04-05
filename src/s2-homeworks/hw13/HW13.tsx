@@ -10,6 +10,8 @@ import errorUnknown from './images/error.svg'
 
 /*
 * 1 - дописать функцию send
+*
+*
 * 2 - дизэйблить кнопки пока идёт запрос
 * 3 - сделать стили в соответствии с дизайном
 * */
@@ -20,7 +22,10 @@ const HW13 = () => {
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
 
+    const [isDisabled, setIsDisabled] = useState(false)
+
     const send = (x?: boolean | null) => () => {
+        setIsDisabled(true)
         const url =
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
@@ -35,14 +40,32 @@ const HW13 = () => {
             .post(url, {success: x})
             .then((res) => {
                 setCode('Код 200!')
+                setText(res.data.errorText)
+                setInfo(res.data.info)
                 setImage(success200)
-                // дописать
-
             })
             .catch((e) => {
-                // дописать
-
+                if (e.response.data) {
+                    if (e.response.status === 500) {
+                        setCode('Ошибка 500!')
+                        setText(e.response.data.errorText)
+                        setInfo(e.response.data.info)
+                        setImage(error500)
+                    } else {
+                        setCode('Ошибка 400!')
+                        setText(e.response.data.errorText)
+                        setInfo(e.response.data.info)
+                        setImage(error400)
+                    }
+                } else {
+                    console.log(e)
+                    setCode('Error!')
+                    setText(e.message)
+                    setInfo(e.name)
+                    setImage(errorUnknown)
+                }
             })
+            .finally(() => setIsDisabled(false))
     }
 
     return (
@@ -54,9 +77,7 @@ const HW13 = () => {
                     <SuperButton
                         id={'hw13-send-true'}
                         onClick={send(true)}
-                        xType={'secondary'}
-                        // дописать
-
+                        disabled={isDisabled}
                     >
                         Send true
                     </SuperButton>
@@ -64,8 +85,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        // дописать
-
+                        disabled={isDisabled}
                     >
                         Send false
                     </SuperButton>
@@ -73,8 +93,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        // дописать
-
+                        disabled={isDisabled}
                     >
                         Send undefined
                     </SuperButton>
@@ -82,8 +101,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        // дописать
-
+                        disabled={isDisabled}
                     >
                         Send null
                     </SuperButton>
