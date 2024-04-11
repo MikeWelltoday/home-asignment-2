@@ -9,9 +9,12 @@ import {useSearchParams} from 'react-router-dom'
 * 1 - дописать функцию onChangeTextCallback в SuperDebouncedInput
 * 2 - дописать функцию sendQuery в HW14
 * 3 - дописать функцию onChangeText в HW14
+*
+*
 * 4 - сделать стили в соответствии с дизайном
 * 5 - добавить HW14 в HW5/pages/JuniorPlus
 * */
+
 
 const getTechs = (find: string) => {
     return axios
@@ -34,29 +37,30 @@ const HW14 = () => {
         setLoading(true)
         getTechs(value)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                if (res && res.data && res.data.techs) {
+                    setTechs(res.data.techs)
+                }
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+            .finally(() => {
+                setLoading(false)
             })
     }
 
     const onChangeText = (value: string) => {
         setFind(value)
-        // делает студент
-
-        // добавить/заменить значение в квери урла
-        // setSearchParams(
-
-        //
+        setSearchParams({find: value})
     }
 
+    // для первоначальной загрузки
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
         sendQuery(params.find || '')
         setFind(params.find || '')
     }, [])
+
 
     const mappedTechs = techs.map(t => (
         <div key={t} id={'hw14-tech-' + t} className={s.tech}>
