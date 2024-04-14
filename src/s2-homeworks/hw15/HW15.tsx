@@ -76,16 +76,10 @@ const HW15 = () => {
         setSort(newSort)
         setPage(1)
 
-        sendQuery({page, count, sort})
-        setSearchParams({page: page.toString(), count: count.toString()})
+        sendQuery({page: 1, count, sort: newSort})
+        setSearchParams({page: '1', count: count.toString()})
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        // sendQuery(
-        // setSearchParams(
-
-        //
     }
 
     useEffect(() => {
